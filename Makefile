@@ -25,8 +25,8 @@ DICT_LINKDEF = LinkDef.hh
 DICT_SRC = Dict.cc
 DICT_OBJ = Dict.o
 
-TARGET = OptSim
-OBJS = OptSim.o
+TARGET = spiros
+OBJS = spiros.o
 
 all: $(TARGET)
 
