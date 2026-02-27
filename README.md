@@ -1,4 +1,4 @@
-# Quick Optical Simulator
+# SPIROS -- a streamlined, precise, intuitive, and rapid optical simulator
 
 A Monte Carlo simulation code for optical photon behavior in 3D geometries.
 
@@ -80,11 +80,11 @@ source (path to ROOT)/bin/thisroot.sh
 | --- | ------------------- |
 | Mac | `brew install root` |
 
-### Optical Simulator
+### SPIROS
 
 ```sh
-git clone https://github.com/tkikawa/optsim.git
-cd optsim
+git clone https://github.com/tkikawa/spiros.git
+cd spiros
 make
 ```
 
@@ -93,7 +93,7 @@ make
 ### Usage
 
 ```sh
-./OptSim [input card file] [output root file]
+./spiros [input card file] [output root file]
 ```
 
 ### Options
@@ -156,7 +156,7 @@ Several parts of a SolidWorks assembly can be exported as follows:
 
 * A text file specifying simulation parameters.
 * Lines beginning with `#` are comments.
-* See [input.card](https://github.com/tkikawa/optsim/blob/master/input.card) for examples.
+* See [input.card](https://github.com/tkikawa/spiros/blob/master/input.card) for examples.
 
 ### Global
 
@@ -319,7 +319,7 @@ When the custom mode is selected for source or direction mode, users can define 
 
 ## 6. Examples
 
-Example input card files and CAD files are available in the [examples directory](https://github.com/tkikawa/optsim/tree/master/examples).
+Example input card files and CAD files are available in the [examples directory](https://github.com/tkikawa/spiros/tree/master/examples).
 
 ## 7. Output ROOT File
 
@@ -390,4 +390,4 @@ When the **particle mode is set to `electron`, `muon`, `pion` or `proton`**:
 
 ---
 
-For further questions, consult the [GitHub repository](https://github.com/tkikawa/optsim) or the issue tracker.
+For further questions, consult the [GitHub repository](https://github.com/tkikawa/spiros) or the issue tracker.
