@@ -1,10 +1,10 @@
-/*****************************/
-/*                           */
-/*  Quick optical simulator  */
-/*                           */
-/*  Author: Tatsuya Kikawa   */
-/*                           */
-/*****************************/
+/********************************/
+/*                              */
+/*  SPIROS (optical simulator)  */
+/*                              */
+/*  Author: Tatsuya Kikawa      */
+/*                              */
+/********************************/
 
 #include <iostream>
 #include <iomanip>
@@ -28,7 +28,7 @@
 
 void PrintUsage(){
     std::cout << "Usage:" << std::endl;
-    std::cout << " OptSim [input card file] [output root file]" << std::endl;
+    std::cout << " spiros [input card file] [output root file]" << std::endl;
     std::cout << "Options:" << std::endl;
     std::cout << " -s : Set the seed of random number generator" << std::endl;
     std::cout << " -d : Event display mode" << std::endl;
