@@ -44,8 +44,7 @@ void Geometry::LoadCAD(std::string name){//Read out the input CAD file as a asse
       Compare(box_max[1],box_min[1],vertex[j][1]);
       Compare(box_max[2],box_min[2],vertex[j][2]);
     }
-    Triangle *tri = new Triangle(vertex);
-    triangle.push_back(*tri);
+    triangle.push_back(Triangle(vertex));
   }
   
 }
