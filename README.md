@@ -1,4 +1,4 @@
-# SPIROS -- a streamlined, precise, intuitive, and rapid optical simulator
+# SPIROS - a streamlined, precise, intuitive, and rapid optical simulator
 
 A Monte Carlo simulation code for optical photon behavior in 3D geometries.
 
