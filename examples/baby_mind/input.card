@@ -3,7 +3,7 @@ Number 100000
 Index 1.0
 
 [Material]
-#ID	CADfile		material_type	refractive_index	attnuation_length(mm)	scattering_length(mm)
+#ID	CADfile		material_type	refractive_index	attenuation_length(mm)	scattering_length(mm)
 1	examples/baby_mind/fiber.stl	converter		1.592			3500			0
 2	examples/baby_mind/gap.stl	medium		1.			0			0
 3	examples/baby_mind/scintillator.stl	medium		1.592			100			0
