@@ -51,7 +51,7 @@ void Geometry::LoadCAD(std::string name){//Read out the input CAD file as a asse
 bool Geometry::InSolid(const Position& pos){//Check if the point is inside or outside of the geometry
   if(!InAABB(pos))return false;
   Position far, tmp;
-  far[0]=pos[0]; far[1]=pos[1]; far[2]=world;
+  far[0]=1.2345*world; far[1]=2.3456*world; far[2]=3.4567*world;
   int ncol = 0;
   for(unsigned int i=0; i < triangle.size(); i++){
     if(triangle[i].Collision(pos,far,tmp))ncol++;
