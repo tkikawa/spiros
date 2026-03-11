@@ -3,7 +3,7 @@ Number 10000
 Index 1.0
 
 [Material]
-#ID	CADfile		material_type	refractive_index	attnuation_length(mm)	scattering_length(mm)
+#ID	CADfile		material_type	refractive_index	attenuation_length(mm)	scattering_length(mm)
 1	examples/wall_mrd/fiber.stl	converter		1.592			3500			0
 2	examples/wall_mrd/gap.stl	medium		1.			0			0
 3	examples/wall_mrd/scintillator.stl	medium		1.592			100			0

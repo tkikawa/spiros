@@ -3,7 +3,7 @@ Number 3000
 Index 1.0
 
 [Material]
-#ID	CADfile	material_type	refractive_index	attnuation_length(mm)	scattering_length(mm)
+#ID	CADfile	material_type	refractive_index	attenuation_length(mm)	scattering_length(mm)
 1	examples/lgp/notch.stl	diffuser
 2	examples/lgp/lgp.stl	medium	1.592	5000	0
 3	examples/lgp/detector.stl		detector

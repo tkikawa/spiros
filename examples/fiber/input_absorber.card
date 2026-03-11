@@ -3,7 +3,7 @@ Number 10000
 Index 1.0
 
 [Material]
-#ID	CADfile		material_type	refractive_index	attnuation_length(mm)	scattering_length(mm)
+#ID	CADfile		material_type	refractive_index	attenuation_length(mm)	scattering_length(mm)
 1	examples/fiber/core.stl	medium		1.59			3500			0
 2	examples/fiber/in_clad.stl	medium		1.49			3500			0
 3	examples/fiber/out_clad.stl	medium		1.42			3500			0

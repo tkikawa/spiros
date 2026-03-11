@@ -3,7 +3,7 @@ Number 100000
 Index 1.0
 
 [Material]
-#ID	CADfile		material_type	refractive_index	attnuation_length(mm)	scattering_length(mm)
+#ID	CADfile		material_type	refractive_index	attenuation_length(mm)	scattering_length(mm)
 1	examples/sfgd_cube/scintillator.stl	medium		1.592			30			0
 2	examples/sfgd_cube/reflector.stl	diffuser
 3	examples/sfgd_cube/fiberx.stl	detector
