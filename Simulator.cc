@@ -366,9 +366,8 @@ void Simulator::SetDisplay(Gui *GUI){
 }
 int Simulator::PointMaterial(const Position& p){//Check the material of initial position
   for(unsigned int m=0;m<mat.size();m++){
-    if(mat[m]->InSolid(p)){
-      return m;
-    }
+    if(!mat[m]->InAABB(p)) continue;
+    if(mat[m]->InSolid(p)) return m;
   }
   return -1;
 }
