@@ -23,12 +23,18 @@ public:
   bool Collision(const Position& s, const Position& t, Position& p);
   Position GetSurfPoint(double r1, double r2);
   Direction GetNormal();
-
+  Position BBMin(){ return bbmin; }
+  Position BBMax(){ return bbmax; }
+  Position Centroid(){ return centroid; }
+  
 private:
   double vertex[3][3];
   Direction normal;
   double a,b,c,d;// Plane equation: ax+by+cz+d=0
   double area;// Surface area
+  Position bbmin;
+  Position bbmax;
+  Position centroid;
 };
 
 #endif

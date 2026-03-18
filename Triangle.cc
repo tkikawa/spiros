@@ -15,6 +15,22 @@ Triangle::Triangle(double vtx[3][3])
   area=sqrt(a*a+b*b+c*c);
   normal[0]=a/area; normal[1]=b/area; normal[2]=c/area;
   area=area/2;
+
+  for(int i=0;i<3;i++){
+    bbmin[i] = vertex[0][i];
+    bbmax[i] = vertex[0][i];
+  }
+
+  for(int i=1;i<3;i++){
+    for(int j=0;j<3;j++){
+      if(vertex[i][j] < bbmin[j]) bbmin[j] = vertex[i][j];
+      if(vertex[i][j] > bbmax[j]) bbmax[j] = vertex[i][j];
+    }
+  }
+
+  for(int i=0;i<3;i++){
+    centroid[i] = (vertex[0][i] + vertex[1][i] + vertex[2][i]) / 3.0;
+  }  
 }
 Triangle::~Triangle()
 {

@@ -28,7 +28,6 @@ public:
   void SetNevt(int NEVT){nevt=NEVT;};
   Source* GetSource(){return src;};
   std::array<int, 5> GetResult(){return count;};
-  void check_defined(const std::string& input);
   
 private:
   int PointMaterial(const Position& p);

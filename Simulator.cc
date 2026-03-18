@@ -1,5 +1,21 @@
 #include "Simulator.hh"
 
+namespace{
+  void check_defined(const std::string& input){
+    const std::string candidates[6] = {
+				       "organic", "NaI", "CsI", "BGO", "LYSO", "LaBr3"
+    };
+    
+    for (int i = 0; i < 6; ++i) {
+      if (input == candidates[i]) {
+	return;
+      }
+    }
+    std::cerr<<"Error: scintillator type must be selected from organic, NaI, CsI, BGO, LYSO or LaBr3."<<std::endl;
+    exit(1);
+  }
+}
+
 Simulator::Simulator(std::mt19937& MT, Config config, std::string OUTPUT, Source *SRC, std::vector<Material*> &MAT)
   : mt(MT),
     output(OUTPUT),
@@ -223,42 +239,44 @@ void Simulator::Run(){//Run simulation
 	      continue;
 	    }
 	  }
+
 	  if(matid==mat[m]->ID()||mat[m]->IntersectsAABB(pos, cross)){
-	    for(int t=0;t<mat[m]->NTriangle();t++){//loop for Triangles
-	      if(mat[m]->GetTriangle(t).Collision(pos,cross,cand)){//Check if a line between two points collides with the triangle or not
-		for(int j=0;j<3;j++){
-		  newpos[j]=cand[j];
-		  if(matid==0){
-		    cross[j]=cand[j];
-		  }
-		  else if(matid==mat[m]->ID()){
-		    cross[j]=cand[j]+vec[j]*micro;
-		  }
-		  else{
-		    cross[j]=cand[j]-vec[j]*micro;
-		  }
+	    Position hit;
+	    Direction hitnormal;
+	    if(mat[m]->FirstHit(pos, cross, hit, hitnormal)){
+	      for(int j=0;j<3;j++){
+		newpos[j]=hit[j];
+		if(matid==0){
+		  cross[j]=hit[j];
 		}
-		normal=mat[m]->GetTriangle(t).GetNormal();
-		if(matid==mat[m]->ID()){
-		  newmatid=0;
-		  newindex=index0;
-		  newattlen=0;
-		  newscatlen=0;
-		  btype=-1;
-		  newmn=-1;
+		else if(matid==mat[m]->ID()){
+		  cross[j]=hit[j]+vec[j]*micro;
 		}
 		else{
-		  newmatid=mat[m]->ID();
-		  newindex=mat[m]->Index();
-		  newattlen=mat[m]->AttLen();
-		  newscatlen=mat[m]->ScatLen();
-		  btype=mat[m]->Type();
-		  newmn=m;
+		  cross[j]=hit[j]-vec[j]*micro;
 		}
-	      }//end of if(mat[m]->GetTriangle(t).Collision(pos,cross,cand))
-	    }//end of for(int t=0;t<mat[m]->NTriangle();t++)
-	  }//end of for(int t=0;t<mat[m]->NTriangle();t++)
-	}//end of if(matid==mat[m]->ID()||mat[m]->IntersectsAABB(pos, cross))
+	      }
+	      normal=hitnormal;
+	      if(matid==mat[m]->ID()){
+		newmatid=0;
+		newindex=index0;
+		newattlen=0;
+		newscatlen=0;
+		btype=-1;
+		newmn=-1;
+	      }
+	      else{
+		newmatid=mat[m]->ID();
+		newindex=mat[m]->Index();
+		newattlen=mat[m]->AttLen();
+		newscatlen=mat[m]->ScatLen();
+		btype=mat[m]->Type();
+		newmn=m;
+	      }
+	    }
+	  }
+	}
+	
 	if(btype!=-2){
 	  pl=Distance(newpos,pos);
 	  if(attlen>0||scatlen>0){//When attlen==0 (scatlen==0), absorption (scattering) in the medium does not occur.
@@ -643,17 +661,4 @@ void Simulator::Mie(const Direction& v, const Direction& p, Direction& newv, Dir
     newp[i] = S_s * s_amp * new_s_dir[i] + S_p * p_amp * new_p_dir[i];
   }
   Normalize(newp);
-}
-void Simulator::check_defined(const std::string& input){
-  const std::string candidates[6] = {
-     "organic", "NaI", "CsI", "BGO", "LYSO", "LaBr3"
-  };
-  
-  for (int i = 0; i < 6; ++i) {
-    if (input == candidates[i]) {
-      return;
-    }
-  }
-  std::cerr<<"Error: scintillator type must be selected from organic, NaI, CsI, BGO, LYSO or LaBr3."<<std::endl;
-  exit(1);
 }
