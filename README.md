@@ -7,7 +7,7 @@ A Monte Carlo simulation code for optical photon behavior in 3D geometries for p
 * Simulation conditions can be easily set via an input card file without recompiling.
 * Geometry can be imported from various 3D CAD file formats.
 * Fast simulation using dedicated, simple code and the Mersenne twister pseudorandom number generator.
-* If you use this simulator in your research, please cite the following paper: [JINST 21 (2026) P04006]([https://www.assimp.org/](https://iopscience.iop.org/article/10.1088/1748-0221/21/04/P04006))
+* If you use this simulator in your research, please cite the following paper: [JINST 21 (2026) P04006](https://iopscience.iop.org/article/10.1088/1748-0221/21/04/P04006)
 
 ## Table of Contents
 
